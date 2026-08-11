@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טיול זוגי מרקוביץ בפראג</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-orange: #d35400;
+            --secondary-orange: #e67e22;
+            --primary-brown: #8b4513;
+            --secondary-brown: #a0522d;
+            --accent-green: #27ae60;
+            --bg-color: #f7f5f2; /* אפור/בהיר עדין */
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #7f8c8d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Assistant', sans-serif;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px; /* תצוגת מובייל ממורכזת */
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-orange);
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        h1 {
+            color: var(--primary-orange);
+            background-color: transparent !important;
+            margin: 0 0 5px 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        h2.subtitle {
+            color: var(--primary-brown);
+            background-color: transparent !important;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .quick-links a {
+            background-color: var(--secondary-orange);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.3s;
+        }
+
+        .quick-links a:nth-child(even) {
+            background-color: var(--primary-brown);
+        }
+
+        .quick-links a:hover {
+            opacity: 0.9;
+        }
+
+        /* Day Cards */
+        .day-card {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-top: 5px solid var(--accent-green);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .day-title {
+            background-color: transparent !important;
+            color: var(--primary-brown);
+            padding: 15px 15px 5px 15px;
+            margin: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Details / Summary */
+        details {
+            margin: 10px;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        summary {
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            list-style: none;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '\\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 15px;
+            color: var(--accent-green);
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .details-content {
+            padding: 15px;
+            background-color: var(--card-bg);
+            border-top: 1px solid #f0f0f0;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Info Rows */
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-row i {
+            color: var(--secondary-orange);
+            width: 20px;
+            text-align: center;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Links */
+        .highlight-link {
+            color: var(--accent-green);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .highlight-link:hover {
+            color: #1e8449;
+        }
+
+        /* Cost Table */
+        .cost-table-container {
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: right;
+        }
+
+        th {
+            background-color: var(--primary-brown);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .table-title {
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #f0f0f0 !important;
+            color: var(--primary-brown);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--accent-green);
+        }
+
+        .footer-line1 {
+            color: var(--primary-orange);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .footer-line2 {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="1.jpg" alt="Logo" class="logo">
+        <h1>טיול זוגי מרקוביץ בפראג</h1>
+        <h2 class="subtitle">ג'-ה' אלול תשפ"ו</h2>
+    </header>
+
+    <div class="quick-links">
+        <a href="https://maps.app.goo.gl/2HmXud9mhMtDaAte6" target="_blank"><i class="fas fa-bed"></i> המלון שלכם</a>
+        <a href="https://www.accuweather.com/he/cz/prague/125594/10-day-weather-forecast/125594" target="_blank"><i class="fas fa-cloud-sun"></i> תחזית פראג</a>
+        <a href="https://maps.app.goo.gl/rxeR8M7iMkWDMJcKA" target="_blank"><i class="fas fa-synagogue"></i> בית חב"ד</a>
+        <a href="https://maps.app.goo.gl/FEXcij9NxUb8Ztsn8" target="_blank"><i class="fas fa-map-marked-alt"></i> המפה שלכם</a>
+    </div>
+
+    <!-- מידע כללי -->
+    <details>
+        <summary><i class="fas fa-info-circle" style="margin-left: 8px;"></i> מידע כללי וחשוב לטיול</summary>
+        <div class="details-content">
+            <div class="info-row"><i class="fas fa-coins"></i> <span><strong>מטבע:</strong> קורונה. 100 קרונות = 14.5 ש"ח (כל סכום לחלק ל-7 כדי לקבל סכום בש"ח).</span></div>
+            <div class="info-row"><i class="fas fa-sun"></i> <span><strong>שקיעה:</strong> 20:20 (ממוצע).</span></div>
+            <div class="info-row"><i class="fas fa-taxi"></i> <span><strong>מוניות:</strong> אפליקציות BOLT או UBER.</span></div>
+            <div class="info-row"><i class="fas fa-bus"></i> <span><strong>תחבורה ציבורית:</strong> חופשי יומי של 24 שעות - 120 קרונות (תשלום באשראי/בנייד).</span></div>
+        </div>
+    </details>
+
+    <!-- יום ראשון -->
+    <div class="day-card">
+        <h2 class="day-title">16/8 יום ראשון - נחיתה והכרת פראג</h2>
+        
+        <details>
+            <summary><i class="fas fa-plane-arrival" style="margin-left: 8px;"></i> 4:00-12:00 טיסה והגעה למלון</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-plane"></i> <span>4:00 הגעה לשדה, 7:10 המראה</span></div>
+                <div class="info-row"><i class="fas fa-plane-arrival"></i> <span>10:15 נחיתה בפראג, 11:30 יציאה למרכז העיר</span></div>
+                <div class="info-row"><i class="fas fa-suitcase-rolling"></i> <span>12:00 הגעה למלון ומסירת מזוודות לשמירה</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/2HmXud9mhMtDaAte6" target="_blank" class="highlight-link">ניווט למלון</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-city" style="margin-left: 8px;"></i> 12:30-13:30 העיר העתיקה</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-walking"></i> <span>הליכה של כ-10 דק' למגדל אבק השריפה, התחלת סיור רגלי עצמאי בפראג היפה.</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/opFeEEVTZZe71Ujk9" target="_blank" class="highlight-link">מגדל אבק השריפה</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/ok9toTkw1ZEwdzZD9" target="_blank" class="highlight-link">כיכר העיר</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/uQutuQQydbbyPeZg8" target="_blank" class="highlight-link">השעון האסטרונומי</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-utensils" style="margin-left: 8px;"></i> 13:30-15:00 ארוחת צהריים</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-info-circle"></i> <span>מבחר מסעדות כשרות זמינות בתחתית העמוד לבחירתכם.</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-star-of-david" style="margin-left: 8px;"></i> 15:00-18:00 הרובע היהודי</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-walking"></i> <span>המשך סיור רגלי להיסטוריה היהודית. רכישת כרטיסים ומדריך שמע קולי במוזיאון.</span></div>
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 9:00 - 19:00</span></div>
+                <div class="info-row"><i class="fas fa-ticket-alt"></i> <span>עלות: כניסה 85₪ | מדריך שמע 30₪ (יש להחזיר בסיום)</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/z99YeeCuPVVnrDn38" target="_blank" class="highlight-link">המוזיאון היהודי (נקודת רכישה והחזרה)</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/gWq147Nj7BX5DuoV8" target="_blank" class="highlight-link">בית העירייה היהודי</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/1AWjg6jJFkAYVENL8" target="_blank" class="highlight-link">בית הכנסת הגבוה</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/WBoLWAJFL7DuJG8u8" target="_blank" class="highlight-link">בית הכנסת אלטנוישול</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/oRXbrbbeftM6bkYH6" target="_blank" class="highlight-link">דוכן קרפ כשר חב"ד</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/gYBB8Vi7czS9DFTi6" target="_blank" class="highlight-link">בית הכנסת מייזליש</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/yfUu9tN1nnshFwhL7" target="_blank" class="highlight-link">בית הכנסת פינקס</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/VTeSxDcRsrh8MJLr8" target="_blank" class="highlight-link">בית הקברות העתיק</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-bed" style="margin-left: 8px;"></i> 18:00-19:00 התרעננות במלון</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-key"></i> <span>קבלת החדר, התרעננות ומנוחה קלה.</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-tree" style="margin-left: 8px;"></i> 19:15-21:00 תצפית פארק לטנה</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-taxi"></i> <span>נסיעה של כ-10 דק' במונית לכניסה לפארק לתצפית מהממת על פראג.</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/G9bLBMFgAZwxSQeR6" target="_blank" class="highlight-link">מיקום התצפית</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-glass-cheers" style="margin-left: 8px;"></i> 21:00-22:00 ארוחת ערב</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-moon"></i> <span>לילה טוב!</span></div>
+            </div>
+        </details>
+    </div>
+
+    <!-- יום שני -->
+    <div class="day-card">
+        <h2 class="day-title">17/8 יום שני - פראג ההיסטורית</h2>
+        
+        <details>
+            <summary><i class="fas fa-coffee" style="margin-left: 8px;"></i> 7:45 שחרית וארוחת בוקר</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-book-open"></i> <span>7:45 שחרית</span></div>
+                <div class="info-row"><i class="fas fa-coffee"></i> <span>9:00 ארוחת בוקר</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-chess-rook" style="margin-left: 8px;"></i> 10:00-13:00 מצודת פראג והגנים</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-bus"></i> <span>הגעה: 10 דק' במונית או כ-35 דק' בתחבורה ציבורית.</span></div>
+                <div class="info-row"><i class="fas fa-users"></i> <span>חילופי משמרות: כל שעה עגולה (טקס גדול ב-12:00). חצר המצודה כניסה חופשית.</span></div>
+                <div class="info-row"><i class="fas fa-ticket-alt"></i> <span>עלות מומלצת לפנים המצודה (ארמון + סימטת הזהב): 450 קרונות (כ-65 ש"ח).</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/biz67GNMxosEzzYS6" target="_blank" class="highlight-link">הגנים המלכותיים (כניסה חופשית)</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/XNKiUpYX3GhUW7C17" target="_blank" class="highlight-link">שער מתיאש (כניסה למצודה)</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/nNzx8LXJv4wEGnCZ6" target="_blank" class="highlight-link">הארמון הישן</a></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/eabYX8EKKamZYTKd7" target="_blank" class="highlight-link">סימטת הזהב</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-leaf" style="margin-left: 8px;"></i> 13:30-14:30 גני זרדי (אופציונלי)</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-info-circle"></i> <span>גנים שקטים ויפים סמוך למצודה עם תצפית על העיר.</span></div>
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות: 10:00 - 18:00</span></div>
+                <div class="info-row"><i class="fas fa-ticket-alt"></i> <span>עלות: 25 ש"ח</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6WDzXCfoeG4Fo3vc8" target="_blank" class="highlight-link">גני זרדי</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-tree" style="margin-left: 8px;"></i> 14:30-15:30 גני ואדלשטיין</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-info-circle"></i> <span>גנים יפים, כניסה חופשית.</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/8s1Q9R4RyGUhT6g77" target="_blank" class="highlight-link">גני ואדלשטיין</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-bridge" style="margin-left: 8px;"></i> 15:30-17:00 גשר קארל וקניות</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-walking"></i> <span>ירידה ברגל עד לגשר, חציית נהר הוולטבה, ומבחר חנויות קריסטל ואומנות.</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/FQjF1LcUxcXkmsGX6" target="_blank" class="highlight-link">גשר קארל</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-shopping-basket" style="margin-left: 8px;"></i> 17:00-18:00 שוק איכרים (אופציונלי)</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-shopping-bag"></i> <span>שוק עם תוצרת מקומית ומזכרות.</span></div>
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 9:00 - 19:00</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/XcKVM6HAGsFhM9ex9" target="_blank" class="highlight-link">מיקום השוק</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-utensils" style="margin-left: 8px;"></i> 18:00-20:30 ארוחה, התרעננות ותפילה</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-utensils"></i> <span>18:00-19:30 ארוחת ערב מוקדמת והתרעננות</span></div>
+                <div class="info-row"><i class="fas fa-book-open"></i> <span>19:30-20:30 מנחה וערבית</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-ship" style="margin-left: 8px;"></i> 21:00-22:00 שייט על הוולטבה</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-moon"></i> <span>שייט לילי ויפהפה על הנהר.</span></div>
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 10:00 - 22:00</span></div>
+                <div class="info-row"><i class="fas fa-ticket-alt"></i> <span>עלות: כ-60 ש"ח. ניתן לקנות מראש, אך לא חובה.</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/cAG7hy9fKL1roTkY8" target="_blank" class="highlight-link">נקודת היציאה לשייט</a></div>
+                <div class="info-row"><i class="fas fa-link"></i> <a href="https://www.getyourguide.com/he-il/prague-l10/prague-river-cruise-with-coffee-and-cake-t66434" target="_blank" class="highlight-link">רכישת כרטיסים (אופציונלי)</a></div>
+            </div>
+        </details>
+    </div>
+
+    <!-- יום שלישי -->
+    <div class="day-card">
+        <h2 class="day-title">18/8 יום שלישי - עוד קצת פראג והביתה</h2>
+        
+        <details>
+            <summary><i class="fas fa-coffee" style="margin-left: 8px;"></i> 7:45-10:30 בוקר אחרון</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-book-open"></i> <span>7:45 שחרית</span></div>
+                <div class="info-row"><i class="fas fa-coffee"></i> <span>9:00 ארוחת בוקר אחרונה בפראג</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-plane-departure" style="margin-left: 8px;"></i> 10:30 יציאה לשדה והמראה</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-taxi"></i> <span>10:30 יציאה לשדה התעופה</span></div>
+                <div class="info-row"><i class="fas fa-plane-departure"></i> <span>11:00 הגעה לשדה, 14:00 המראה לישראל</span></div>
+                <div class="info-row"><i class="fas fa-home"></i> <span>18:40 ברוכים השבים הביתה!</span></div>
+            </div>
+        </details>
+    </div>
+
+    <!-- מסעדות כשרות -->
+    <div class="day-card">
+        <h2 class="day-title"><i class="fas fa-utensils"></i> מסעדות כשרות בפראג</h2>
+        
+        <details>
+            <summary><i class="fas fa-pizza-slice" style="margin-left: 8px;"></i> פיצריית שלנו - חלבי</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 8:45 - 22:00</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/RuraAivADy6jjyxw9" target="_blank" class="highlight-link">ניווט לפיצרייה</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-cheese" style="margin-left: 8px;"></i> מסעדת ומילו - חלבי</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 8:30 - 22:00</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/NrEqdpRCQuaK4MUVA" target="_blank" class="highlight-link">ניווט למסעדה</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-hamburger" style="margin-left: 8px;"></i> מסעדת גריל - בשרי</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 12:30 - 22:00</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/1eKQRAwMcjQt4RRp9" target="_blank" class="highlight-link">ניווט למסעדה</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-ice-cream" style="margin-left: 8px;"></i> דוכן הקרפ - חלבי</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-info-circle"></i> <span>כשרות מהדרין רק על דוכן הקרפ (לא על הקיורטוש הצמוד).</span></div>
+                <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 11:00 - 19:00</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/61cpdzwXmDZ4edJ76" target="_blank" class="highlight-link">ניווט לדוכן</a></div>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fas fa-mug-hot" style="margin-left: 8px;"></i> קפה חלבי (בקינג דיוויד)</summary>
+            <div class="details-content">
+                <div class="info-row"><i class="fas fa-info-circle"></i> <span>מקום רגוע לארוחה קלה (לא חב"ד).</span></div>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/Xydazv7SxiJe6UXj6" target="_blank" class="highlight-link">ניווט לבית הקפה</a></div>
+            </div>
+        </details>
+    </div>
+
+    <!-- טבלת ריכוז עלויות -->
+    <div class="cost-table-container">
+        <div class="table-title"><strong>ריכוז עלויות משוער לאתרים - עבור 2 מבוגרים</strong></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>שם האתר / פעילות</th>
+                    <th>עלות (מטבע מקומי)</th>
+                    <th>עלות (ש"ח)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>המוזיאון היהודי (כניסה)</td>
+                    <td>-</td>
+                    <td>170 ₪</td>
+                </tr>
+                <tr>
+                    <td>מדריך שמע (המוזיאון היהודי)</td>
+                    <td>-</td>
+                    <td>60 ₪</td>
+                </tr>
+                <tr>
+                    <td>מצודת פראג (הארמון + סימטת הזהב)</td>
+                    <td>900 קרונות</td>
+                    <td>~130 ₪</td>
+                </tr>
+                <tr>
+                    <td>גני זרדי</td>
+                    <td>-</td>
+                    <td>50 ₪</td>
+                </tr>
+                <tr>
+                    <td>שייט על הוולטבה</td>
+                    <td>-</td>
+                    <td>~120 ₪</td>
+                </tr>
+                <tr>
+                    <td>תחבורה ציבורית (חופשי יומי)</td>
+                    <td>240 קרונות</td>
+                    <td>~35 ₪</td>
+                </tr>
+                <tr class="total-row">
+                    <td>סה"כ אטרקציות (משוער לזוג)</td>
+                    <td>1,140 קרונות</td>
+                    <td>~565 ₪</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-line1">כל הזכויות שמורות להדס טרכטר - יועצת טיולים בארץ ובעולם 050-5685356</div>
+        <div class="footer-line2">אין להעביר ללא אישור מפורש. העובר על כך עובר על גזל לפי דין תורה וחוקי המקום</div>
+    </div>
+</div>
+
+</body>
+</html>
