@@ -13,14 +13,15 @@
     
     <style>
         :root {
-            --primary-orange: #d35400;
-            --secondary-orange: #e67e22;
-            --primary-brown: #3e2723; /* חום אדמה כהה */
-            --secondary-brown: #4e342e;
-            --accent-green: #27ae60;
-            --bg-color: #f7f5f2; /* אפור/בהיר עדין */
+            /* פלטת גגות פראג משודרגת */
+            --primary-orange: #C85A17; /* כתום טרקוטה עמוק */
+            --secondary-orange: #E27D3E; /* כתום טרקוטה בהיר לכפתורים */
+            --primary-brown: #4A3B32; /* חום מוקה לטקסט וכותרות משנה */
+            --secondary-brown: #66544A; /* חום רך יותר */
+            --accent-green: #457B5E; /* ירוק פטינה/מרווה לאייקונים */
+            --bg-color: #FAF6F0; /* רקע שמנת חמים */
             --card-bg: #ffffff;
-            --text-dark: #333333;
+            --text-dark: #4A3B32; /* כל הטקסט בחום עמוק במקום שחור */
             --text-gray: #7f8c8d;
         }
 
@@ -54,7 +55,7 @@
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            border: 4px solid var(--secondary-orange);
+            border: 4px solid var(--primary-orange);
             object-fit: cover;
             margin: 0 auto 15px auto;
             display: block;
@@ -86,7 +87,7 @@
         }
 
         .quick-links a {
-            background-color: var(--secondary-orange);
+            background-color: var(--primary-orange);
             color: white;
             padding: 8px 16px;
             border-radius: 25px;
@@ -110,8 +111,8 @@
         /* Day Cards */
         .day-card {
             background: var(--card-bg);
-            border: 1px solid #eee;
-            border-top: 5px solid var(--accent-green);
+            border: 1px solid var(--secondary-orange); /* מסגרת כתומה */
+            border-top: 5px solid var(--primary-orange); /* פס עליון כתום */
             border-radius: 10px;
             margin-bottom: 25px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.04);
@@ -120,7 +121,7 @@
 
         .day-title {
             background-color: transparent !important;
-            color: var(--primary-brown);
+            color: var(--primary-orange); /* כותרת כתומה */
             padding: 15px 15px 5px 15px;
             margin: 0;
             font-size: 1.3rem;
@@ -130,16 +131,16 @@
         /* Details / Summary */
         details {
             margin: 10px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--secondary-orange); /* מסגרת כתומה מעודנת לחלוניות */
             border-radius: 8px;
-            background-color: #fafafa;
+            background-color: #FDFBF8;
         }
 
         summary {
             padding: 12px 15px;
             cursor: pointer;
             font-weight: 700;
-            color: var(--primary-orange);
+            color: var(--primary-brown);
             display: flex;
             align-items: center;
             list-style: none;
@@ -187,7 +188,7 @@
         }
 
         .info-row i {
-            color: var(--secondary-orange);
+            color: var(--accent-green); /* כל האייקונים בירוק כפי שביקשת */
             width: 20px;
             text-align: center;
             margin-top: 3px;
@@ -203,7 +204,7 @@
         }
 
         .highlight-link:hover {
-            color: #1e8449;
+            color: #2F5943;
         }
 
         /* Cost Table */
@@ -225,17 +226,17 @@
         }
 
         th {
-            background-color: var(--primary-brown);
+            background-color: var(--primary-orange); /* כותרת טבלה בכתום */
             color: white;
             font-weight: 600;
         }
 
         tr:nth-child(even) {
-            background-color: #fafafa;
+            background-color: #FDFBF8;
         }
         
         .table-title {
-            color: var(--primary-orange);
+            color: var(--primary-brown);
             font-size: 1.2rem;
             margin-bottom: 10px;
             text-align: center;
@@ -243,7 +244,7 @@
 
         .total-row {
             font-weight: bold;
-            background-color: #f0f0f0 !important;
+            background-color: #F5EEE6 !important;
             color: var(--primary-brown);
         }
 
@@ -252,7 +253,7 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 2px solid var(--accent-green);
+            border-top: 2px solid var(--primary-orange);
         }
 
         .footer-line1 {
@@ -263,7 +264,7 @@
         }
 
         .footer-line2 {
-            color: var(--text-gray);
+            color: var(--secondary-brown);
             font-size: 0.85rem;
         }
     </style>
@@ -286,7 +287,7 @@
 
     <!-- מידע כללי -->
     <details>
-        <summary><i class="fas fa-info-circle" style="margin-left: 8px;"></i> מידע כללי וחשוב לטיול</summary>
+        <summary><i class="fas fa-info-circle" style="margin-left: 8px; color: var(--accent-green);"></i> מידע כללי וחשוב לטיול</summary>
         <div class="details-content">
             <div class="info-row"><i class="fas fa-coins"></i> <span><strong>מטבע:</strong> קורונה. 100 קרונות = 14.5 ש"ח (כל סכום לחלק ל-7 כדי לקבל סכום בש"ח).</span></div>
             <div class="info-row"><i class="fas fa-sun"></i> <span><strong>שקיעה:</strong> 20:20 (ממוצע).</span></div>
@@ -300,7 +301,7 @@
         <h2 class="day-title">16/8 יום ראשון - נחיתה והכרת פראג</h2>
         
         <details>
-            <summary><i class="fas fa-plane-arrival" style="margin-left: 8px;"></i> 4:00-12:00 טיסה והגעה למלון</summary>
+            <summary><i class="fas fa-plane-arrival" style="margin-left: 8px; color: var(--accent-green);"></i> 4:00-12:00 טיסה והגעה למלון</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-plane"></i> <span>4:00 הגעה לשדה, 7:10 המראה</span></div>
                 <div class="info-row"><i class="fas fa-plane-arrival"></i> <span>10:15 נחיתה בפראג, 11:30 יציאה למרכז העיר</span></div>
@@ -310,7 +311,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-city" style="margin-left: 8px;"></i> 12:30-13:30 העיר העתיקה</summary>
+            <summary><i class="fas fa-city" style="margin-left: 8px; color: var(--accent-green);"></i> 12:30-13:30 העיר העתיקה</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-walking"></i> <span>הליכה של כ-10 דק' למגדל אבק השריפה, התחלת סיור רגלי עצמאי בפראג היפה.</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/opFeEEVTZZe71Ujk9" target="_blank" class="highlight-link">מגדל אבק השריפה</a></div>
@@ -320,14 +321,14 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-utensils" style="margin-left: 8px;"></i> 13:30-15:00 ארוחת צהריים</summary>
+            <summary><i class="fas fa-utensils" style="margin-left: 8px; color: var(--accent-green);"></i> 13:30-15:00 ארוחת צהריים</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-info-circle"></i> <span>מבחר מסעדות כשרות זמינות בתחתית העמוד לבחירתכם.</span></div>
             </div>
         </details>
 
         <details>
-            <summary><i class="fas fa-star-of-david" style="margin-left: 8px;"></i> 15:00-18:00 הרובע היהודי</summary>
+            <summary><i class="fas fa-star-of-david" style="margin-left: 8px; color: var(--accent-green);"></i> 15:00-18:00 הרובע היהודי</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-walking"></i> <span>המשך סיור רגלי להיסטוריה היהודית. רכישת כרטיסים ומדריך שמע קולי במוזיאון.</span></div>
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 9:00 - 19:00</span></div>
@@ -344,14 +345,14 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-bed" style="margin-left: 8px;"></i> 18:00-19:00 התרעננות במלון</summary>
+            <summary><i class="fas fa-bed" style="margin-left: 8px; color: var(--accent-green);"></i> 18:00-19:00 התרעננות במלון</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-key"></i> <span>קבלת החדר, התרעננות ומנוחה קלה.</span></div>
             </div>
         </details>
 
         <details>
-            <summary><i class="fas fa-tree" style="margin-left: 8px;"></i> 19:15-21:00 תצפית פארק לטנה</summary>
+            <summary><i class="fas fa-tree" style="margin-left: 8px; color: var(--accent-green);"></i> 19:15-21:00 תצפית פארק לטנה</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-taxi"></i> <span>נסיעה של כ-10 דק' במונית לכניסה לפארק לתצפית מהממת על פראג.</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/G9bLBMFgAZwxSQeR6" target="_blank" class="highlight-link">מיקום התצפית</a></div>
@@ -359,7 +360,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-glass-cheers" style="margin-left: 8px;"></i> 21:00-22:00 ארוחת ערב</summary>
+            <summary><i class="fas fa-glass-cheers" style="margin-left: 8px; color: var(--accent-green);"></i> 21:00-22:00 ארוחת ערב</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-moon"></i> <span>לילה טוב!</span></div>
             </div>
@@ -371,7 +372,7 @@
         <h2 class="day-title">17/8 יום שני - פראג ההיסטורית</h2>
         
         <details>
-            <summary><i class="fas fa-coffee" style="margin-left: 8px;"></i> 7:45 שחרית וארוחת בוקר</summary>
+            <summary><i class="fas fa-coffee" style="margin-left: 8px; color: var(--accent-green);"></i> 7:45 שחרית וארוחת בוקר</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-book-open"></i> <span>7:45 שחרית</span></div>
                 <div class="info-row"><i class="fas fa-coffee"></i> <span>9:00 ארוחת בוקר</span></div>
@@ -379,7 +380,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-chess-rook" style="margin-left: 8px;"></i> 10:00-13:00 מצודת פראג והגנים</summary>
+            <summary><i class="fas fa-chess-rook" style="margin-left: 8px; color: var(--accent-green);"></i> 10:00-13:00 מצודת פראג והגנים</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-bus"></i> <span>הגעה: 10 דק' במונית או כ-35 דק' בתחבורה ציבורית.</span></div>
                 <div class="info-row"><i class="fas fa-users"></i> <span>חילופי משמרות: כל שעה עגולה (טקס גדול ב-12:00). חצר המצודה כניסה חופשית.</span></div>
@@ -392,7 +393,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-leaf" style="margin-left: 8px;"></i> 13:30-14:30 גני זרדי (אופציונלי)</summary>
+            <summary><i class="fas fa-leaf" style="margin-left: 8px; color: var(--accent-green);"></i> 13:30-14:30 גני זרדי (אופציונלי)</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-info-circle"></i> <span>גנים שקטים ויפים סמוך למצודה עם תצפית על העיר.</span></div>
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות: 10:00 - 18:00</span></div>
@@ -402,7 +403,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-tree" style="margin-left: 8px;"></i> 14:30-15:30 גני ואדלשטיין</summary>
+            <summary><i class="fas fa-tree" style="margin-left: 8px; color: var(--accent-green);"></i> 14:30-15:30 גני ואדלשטיין</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-info-circle"></i> <span>גנים יפים, כניסה חופשית.</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/8s1Q9R4RyGUhT6g77" target="_blank" class="highlight-link">גני ואדלשטיין</a></div>
@@ -410,7 +411,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-bridge" style="margin-left: 8px;"></i> 15:30-17:00 גשר קארל וקניות</summary>
+            <summary><i class="fas fa-bridge" style="margin-left: 8px; color: var(--accent-green);"></i> 15:30-17:00 גשר קארל וקניות</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-walking"></i> <span>ירידה ברגל עד לגשר, חציית נהר הוולטבה, ומבחר חנויות קריסטל ואומנות.</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/FQjF1LcUxcXkmsGX6" target="_blank" class="highlight-link">גשר קארל</a></div>
@@ -418,7 +419,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-shopping-basket" style="margin-left: 8px;"></i> 17:00-18:00 שוק איכרים (אופציונלי)</summary>
+            <summary><i class="fas fa-shopping-basket" style="margin-left: 8px; color: var(--accent-green);"></i> 17:00-18:00 שוק איכרים (אופציונלי)</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-shopping-bag"></i> <span>שוק עם תוצרת מקומית ומזכרות.</span></div>
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 9:00 - 19:00</span></div>
@@ -427,7 +428,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-utensils" style="margin-left: 8px;"></i> 18:00-20:30 ארוחה, התרעננות ותפילה</summary>
+            <summary><i class="fas fa-utensils" style="margin-left: 8px; color: var(--accent-green);"></i> 18:00-20:30 ארוחה, התרעננות ותפילה</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-utensils"></i> <span>18:00-19:30 ארוחת ערב מוקדמת והתרעננות</span></div>
                 <div class="info-row"><i class="fas fa-book-open"></i> <span>19:30-20:30 מנחה וערבית</span></div>
@@ -435,7 +436,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-ship" style="margin-left: 8px;"></i> 21:00-22:00 שייט על הוולטבה</summary>
+            <summary><i class="fas fa-ship" style="margin-left: 8px; color: var(--accent-green);"></i> 21:00-22:00 שייט על הוולטבה</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-moon"></i> <span>שייט לילי ויפהפה על הנהר.</span></div>
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 10:00 - 22:00</span></div>
@@ -451,7 +452,7 @@
         <h2 class="day-title">18/8 יום שלישי - עוד קצת פראג והביתה</h2>
         
         <details>
-            <summary><i class="fas fa-coffee" style="margin-left: 8px;"></i> 7:45-10:30 בוקר אחרון</summary>
+            <summary><i class="fas fa-coffee" style="margin-left: 8px; color: var(--accent-green);"></i> 7:45-10:30 בוקר אחרון</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-book-open"></i> <span>7:45 שחרית</span></div>
                 <div class="info-row"><i class="fas fa-coffee"></i> <span>9:00 ארוחת בוקר אחרונה בפראג</span></div>
@@ -459,7 +460,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-plane-departure" style="margin-left: 8px;"></i> 10:30 יציאה לשדה והמראה</summary>
+            <summary><i class="fas fa-plane-departure" style="margin-left: 8px; color: var(--accent-green);"></i> 10:30 יציאה לשדה והמראה</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-taxi"></i> <span>10:30 יציאה לשדה התעופה</span></div>
                 <div class="info-row"><i class="fas fa-plane-departure"></i> <span>11:00 הגעה לשדה, 14:00 המראה לישראל</span></div>
@@ -473,7 +474,7 @@
         <h2 class="day-title"><i class="fas fa-utensils"></i> מסעדות כשרות בפראג</h2>
         
         <details>
-            <summary><i class="fas fa-pizza-slice" style="margin-left: 8px;"></i> פיצריית שלנו - חלבי</summary>
+            <summary><i class="fas fa-pizza-slice" style="margin-left: 8px; color: var(--accent-green);"></i> פיצריית שלנו - חלבי</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 8:45 - 22:00</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/RuraAivADy6jjyxw9" target="_blank" class="highlight-link">ניווט לפיצרייה</a></div>
@@ -481,7 +482,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-cheese" style="margin-left: 8px;"></i> מסעדת ומילו - חלבי</summary>
+            <summary><i class="fas fa-cheese" style="margin-left: 8px; color: var(--accent-green);"></i> מסעדת ומילו - חלבי</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 8:30 - 22:00</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/NrEqdpRCQuaK4MUVA" target="_blank" class="highlight-link">ניווט למסעדה</a></div>
@@ -489,7 +490,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-hamburger" style="margin-left: 8px;"></i> מסעדת גריל - בשרי</summary>
+            <summary><i class="fas fa-hamburger" style="margin-left: 8px; color: var(--accent-green);"></i> מסעדת גריל - בשרי</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 12:30 - 22:00</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/1eKQRAwMcjQt4RRp9" target="_blank" class="highlight-link">ניווט למסעדה</a></div>
@@ -497,7 +498,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-ice-cream" style="margin-left: 8px;"></i> דוכן הקרפ - חלבי</summary>
+            <summary><i class="fas fa-ice-cream" style="margin-left: 8px; color: var(--accent-green);"></i> דוכן הקרפ - חלבי</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-info-circle"></i> <span>כשרות מהדרין רק על דוכן הקרפ (לא על הקיורטוש הצמוד).</span></div>
                 <div class="info-row"><i class="fas fa-clock"></i> <span>שעות פתיחה: 11:00 - 19:00</span></div>
@@ -506,7 +507,7 @@
         </details>
 
         <details>
-            <summary><i class="fas fa-mug-hot" style="margin-left: 8px;"></i> קפה חלבי (בקינג דיוויד)</summary>
+            <summary><i class="fas fa-mug-hot" style="margin-left: 8px; color: var(--accent-green);"></i> קפה חלבי (בקינג דיוויד)</summary>
             <div class="details-content">
                 <div class="info-row"><i class="fas fa-info-circle"></i> <span>מקום רגוע לארוחה קלה (לא חב"ד).</span></div>
                 <div class="info-row"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/Xydazv7SxiJe6UXj6" target="_blank" class="highlight-link">ניווט לבית הקפה</a></div>
