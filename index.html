@@ -15,8 +15,8 @@
         :root {
             --primary-orange: #d35400;
             --secondary-orange: #e67e22;
-            --primary-brown: #8b4513;
-            --secondary-brown: #a0522d;
+            --primary-brown: #3e2723; /* חום אדמה כהה */
+            --secondary-brown: #4e342e;
             --accent-green: #27ae60;
             --bg-color: #f7f5f2; /* אפור/בהיר עדין */
             --card-bg: #ffffff;
@@ -36,7 +36,7 @@
 
         .container {
             width: 100%;
-            max-width: 500px; /* תצוגת מובייל ממורכזת */
+            max-width: 500px;
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 15px;
@@ -152,8 +152,8 @@
         }
 
         summary::after {
-            content: '\\f078';
-            font-family: 'Font Awesome 6 Free';
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
             left: 15px;
@@ -521,45 +521,40 @@
             <thead>
                 <tr>
                     <th>שם האתר / פעילות</th>
-                    <th>עלות (מטבע מקומי)</th>
+                    <th>עלות (בקרונות)</th>
                     <th>עלות (ש"ח)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>המוזיאון היהודי (כניסה)</td>
-                    <td>-</td>
+                    <td>1,190</td>
                     <td>170 ₪</td>
                 </tr>
                 <tr>
                     <td>מדריך שמע (המוזיאון היהודי)</td>
-                    <td>-</td>
+                    <td>420</td>
                     <td>60 ₪</td>
                 </tr>
                 <tr>
                     <td>מצודת פראג (הארמון + סימטת הזהב)</td>
-                    <td>900 קרונות</td>
-                    <td>~130 ₪</td>
+                    <td>900</td>
+                    <td>130 ₪</td>
                 </tr>
                 <tr>
                     <td>גני זרדי</td>
-                    <td>-</td>
+                    <td>350</td>
                     <td>50 ₪</td>
                 </tr>
                 <tr>
                     <td>שייט על הוולטבה</td>
-                    <td>-</td>
-                    <td>~120 ₪</td>
-                </tr>
-                <tr>
-                    <td>תחבורה ציבורית (חופשי יומי)</td>
-                    <td>240 קרונות</td>
-                    <td>~35 ₪</td>
+                    <td>840</td>
+                    <td>120 ₪</td>
                 </tr>
                 <tr class="total-row">
                     <td>סה"כ אטרקציות (משוער לזוג)</td>
-                    <td>1,140 קרונות</td>
-                    <td>~565 ₪</td>
+                    <td>3,700</td>
+                    <td>530 ₪</td>
                 </tr>
             </tbody>
         </table>
